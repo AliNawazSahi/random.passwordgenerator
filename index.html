@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center ;
+            align-items: center ;
+            flex-direction: column;
+            font-family: sans-serif;
+        }
+        #pass{
+            font-size: 3vw;
+        }
+        #btn{
+            background-color: red;
+            margin-top: 100px;
+            font-size: 2em;
+        }
+        h1{
+            color: green;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <button id="btn" onclick="fun()"><b>Generator</b></button>
+    <br> <br> <br>
+    <div class="heading2">Click the Generator button to see the password below</div>
+    <div id="pass">      
+    </div>
+    <script>
+           function fun() {
+            class Password {
+            constructor() {
+                this.pass = ""
+            }
+            password_generator(len) {
+                let alphabet = "abcdefghijklmnopqrstuvwxyz"
+                let numbers = "1234567890"
+                let special_char = ",.<>/?:;'|=-+_~!@#$^&*"
+                if (len < 3) {
+                    alert("Enter number greater than 3")
+                } else {
+
+                    let i = 0
+                    while (i < len) {
+                        this.pass += alphabet[Math.floor(Math.random() * alphabet.length)]
+                        this.pass += numbers[Math.floor(Math.random() * numbers.length)]
+                        this.pass += special_char[Math.floor(Math.random() * special_char.length)]
+                        i += 3
+                    }
+                    this.pass = this.pass.substr(0,len)
+                    return this.pass
+                }
+            }
+        }
+        let p = new Password()
+        let x = p.password_generator(9)
+       pass.innerHTML = "<h1>Generated Password is </h1>"+"<br>"+"<br>"+"<br>" + x 
+    }
+    </script>
+</body>
+
+</html>
